@@ -5,13 +5,19 @@ import java.io.*;
 */
 public class Runner {
 
+    public static updateFile(String s) {
+
+    }
+
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-
-        String header = "public class Hello { public static void main(String[] args) { ";
+        String vars = "";
+        String classHeader = "public class Hello { ""public static void main(String[] args) { ";
+        String mainHeader =
         String middle = "";
         String footer = "} }";
         boolean exit = false;
+
         while (!exit) {
             String line = s.nextLine();
             if (line.equals("q")) {
@@ -23,18 +29,16 @@ public class Runner {
                 middle += line;
 
                 try {
-
                     File file = new File("Hello.java");
-
                     // if file doesnt exists, then create it
                     if (!file.exists()) {
                         file.createNewFile();
                     }
-
                     FileWriter fw = new FileWriter(file.getAbsoluteFile());
                     BufferedWriter bw = new BufferedWriter(fw);
                     bw.write(header + middle + footer);
                     bw.close();
+
                     System.out.println(Command.executeCommand("javac Hello.java"));
                     System.out.println(Command.executeCommand("java Hello"));
                     System.out.println("Done");
