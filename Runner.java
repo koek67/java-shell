@@ -5,15 +5,10 @@ import java.io.*;
 */
 public class Runner {
 
-    public static updateFile(String s) {
-
-    }
-
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         String vars = "";
-        String classHeader = "public class Hello { ""public static void main(String[] args) { ";
-        String mainHeader =
+        String header = "public class Hello { public static void main(String[] args) { ";
         String middle = "";
         String footer = "} }";
         boolean exit = false;
@@ -27,7 +22,6 @@ public class Runner {
                 // everything else
                 // shove it into a main method
                 middle += line;
-
                 try {
                     File file = new File("Hello.java");
                     // if file doesnt exists, then create it
@@ -38,19 +32,15 @@ public class Runner {
                     BufferedWriter bw = new BufferedWriter(fw);
                     bw.write(header + middle + footer);
                     bw.close();
-
-                    System.out.println(Command.executeCommand("javac Hello.java"));
+                    String hi = Command.executeCommand("javac Hello.java");
+                    System.out.println("hello: " + hi.length());
                     System.out.println(Command.executeCommand("java Hello"));
                     System.out.println("Done");
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             }
         }
-        header = "} }";
-
     }
 
 }
