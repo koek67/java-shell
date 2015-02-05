@@ -32,10 +32,7 @@ public class Runner {
                     BufferedWriter bw = new BufferedWriter(fw);
                     bw.write(header + middle + footer);
                     bw.close();
-                    String hi = Command.executeCommand("javac Hello.java");
-                    System.out.println("hello: " + hi.length());
-                    System.out.println(Command.executeCommand("java Hello"));
-                    System.out.println("Done");
+                    Command.doTheThing("Hello");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
