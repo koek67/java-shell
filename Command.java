@@ -63,11 +63,11 @@ public class Command implements Runnable {
         System.out.println(command + " exitValue() " + pro.exitValue());
     }
 
-    public static   void doTheThing(String file) {
+    public static void doTheThing(String file) {
         try {
             runProcess("javac "+ file +".java");
             runProcess("java " + file);
-        } catch (Exception e)    
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
